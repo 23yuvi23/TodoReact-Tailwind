@@ -1,4 +1,4 @@
-import React, { useRef , useState} from 'react'
+import React, { useEffect, useRef , useState} from 'react'
 import todo_icon from "../assets/todo_icon.png"
 import TodoItems from './TodoItems'
 
@@ -20,7 +20,7 @@ const ToDo = () => {
       return null
     }
 
-    // status done or not done 
+    // ---------------------status done or not done 
     const newTodo = {
       id: Date.now(),
       text :inputText,
@@ -33,12 +33,29 @@ const ToDo = () => {
     inputRef.current.value="";
   }
 
-  // delete todo logic
+
+  // ------------------delete todo logic
   const deleteTodo = (id)=>{
     setTodoList((prvTodos)=>{
       return prvTodos.filter((todo)=> todo.id!==id)
     })
   }
+
+  //-------toggle complete or not logic
+  const toggle = (id)=>{
+    setTodoList((prevTodos)=>{
+      return prevTodos.map((todo)=>{
+        if(todo.id === id){
+          return {...todo, isComplete:!todo.isComplete}     // if true then false if false it wil make it true
+        }
+        return todo;      // return other item without changing status
+      })
+    })
+  }
+
+  useEffect(()=>{
+    // console.log(todoList);
+  },[todoList])
 
   return (
     <div className='bg-white place-self-center w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl '>
@@ -68,7 +85,7 @@ const ToDo = () => {
         {/* //now this code will display the todo in screen that we input  */}
         {todoList.map((item,index)=>{
             return <TodoItems key={index} text ={item.text} id={item.id} 
-            isComplete={item.isComplete} deleteTodo={deleteTodo}/> 
+            isComplete={item.isComplete} deleteTodo={deleteTodo} toggle={toggle}/> 
         })}
 
         {/* //   ------- hard coded value */}
