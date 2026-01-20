@@ -33,8 +33,12 @@ const ToDo = () => {
     inputRef.current.value="";
   }
 
-
-
+  // delete todo logic
+  const deleteTodo = (id)=>{
+    setTodoList((prvTodos)=>{
+      return prvTodos.filter((todo)=> todo.id!==id)
+    })
+  }
 
   return (
     <div className='bg-white place-self-center w-11/12 max-w-md flex flex-col p-7 min-h-[550px] rounded-xl '>
@@ -63,7 +67,8 @@ const ToDo = () => {
 
         {/* //now this code will display the todo in screen that we input  */}
         {todoList.map((item,index)=>{
-            return <TodoItems key={index} text ={item.text}/> 
+            return <TodoItems key={index} text ={item.text} id={item.id} 
+            isComplete={item.isComplete} deleteTodo={deleteTodo}/> 
         })}
 
         {/* //   ------- hard coded value */}
