@@ -5,8 +5,9 @@ import TodoItems from './TodoItems'
 const ToDo = () => {
 
   // adding state variable to store the Todo List
-  const[todoList, setTodoList] = useState([]);
-
+  // update the useState([]) to useState(localStorage.getItem) to get data even when page is refreshed 
+  const[todoList, setTodoList] = useState
+  (localStorage.getItem("todos")? JSON.parse(localStorage.getItem("todos")) : []); 
 
   // we used useRef hook so that we get value entered in the input field below 
   const inputRef = useRef();
@@ -54,6 +55,8 @@ const ToDo = () => {
   }
 
   useEffect(()=>{
+    // add the todos to your browser Local storage
+    localStorage.setItem("todos", JSON.stringify(todoList))
     // console.log(todoList);
   },[todoList])
 
