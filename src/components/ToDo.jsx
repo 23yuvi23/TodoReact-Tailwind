@@ -1,5 +1,6 @@
 import React from 'react'
 import todo_icon from "../assets/todo_icon.png"
+import TodoItems from './TodoItems'
 
 const ToDo = () => {
   return (
@@ -11,7 +12,7 @@ const ToDo = () => {
         <img className='w-8' src={todo_icon} alt="image"/>
         <h1 className='text-3xl font-semibold'>To-Do List</h1>
     </div>
-d
+
      {/* --------------------------------Input box----------------------------- */}
     <div className='flex items-center my-7 bg-gray-200 rounded-full'>
 
@@ -25,7 +26,10 @@ d
     </div>
 
      {/* --------------------------------Todo list----------------------------- */}
-
+      <div>
+        <TodoItems text="Learn Coding"/>
+        <TodoItems text="Learn Coding part 2"/>
+      </div>
     <div>
 
     </div>
