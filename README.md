@@ -37,27 +37,9 @@ This app helps users manage daily tasks by allowing them to **add, delete, and m
 
 ## 📁 Project Structure
 
-todoapp/
-├── public/
-├── screenshots/
-│   └── home.png
-├── src/
-│   ├── assets/
-│   │   └── todo_icon.png
-│   ├── components/
-│   │   ├── ToDo.jsx
-│   │   └── TodoItems.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package.json
-├── package-lock.json
-├── vite.config.js
-└── README.md
-
+<p>
+  <img src="./screenshots/structure.png" width="420" />
+</p>
 ---
 
 ## 🚀 Getting Started
